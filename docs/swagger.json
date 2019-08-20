@@ -13,66 +13,155 @@
   "paths": {
     "/categories": {
       "get": {
-        "description": "Get all categories",
+        "summary": "Get a list of categories.",
         "responses": {
           "200": {
-            "description": "Returned a list of categories",
+            "description": "A JSON array of categories",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/getAll"
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad request"
           }
         }
       },
       "post": {
-        "description": "Create a category",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "*/*": {
-
+        "summary": "Creates a category.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/get"
               }
             }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Category created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/get"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
           }
         }
       }
     },
     "/categories/{id}": {
+      "parameters": [{
+        "in": "path",
+        "name": "id",
+        "required": true,
+        "schema": {
+          "type": "integer"
+        }
+      }],
       "get": {
+        "summary": "Returns a category by ID",
+        "responses": {
+          "200": {
+            "description": "Returned a category matching the given id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/get"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
       },
       "put": {
+        "summary": "Updates a category",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/get"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Category updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/get"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
       },
       "delete": {
+        "summary": "Deletes a category",
+        "responses": {
+          "200": {
+            "description": "Category deleted"
+          }
+        }
       }
     },
     "/products": {
       "get": {
-        "description": "Get all products",
+        "summary": "Get all products",
         "responses": {
           "200": {
             "description": "Returned a list of products",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/getAll"
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad request"
           }
         }
       },
       "post": {
-        "description": "Create a product",
+        "summary": "Create a product",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/get"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "",
+            "description": "Product created",
             "content": {
-              "*/*": {
-
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/get"
+                }
               }
             }
           }
@@ -80,22 +169,80 @@
       }
     },
     "/products/{id}": {
+      "parameters": [{
+        "in": "path",
+        "name": "id",
+        "required": true,
+        "schema": {
+          "type": "integer"
+        }
+      }],
       "get": {
+        "summary": "Returns a product by ID",
+        "responses": {
+          "200": {
+            "description": "Returned a product matching the given id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/get"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
       },
       "put": {
+        "summary": "Updates a product",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/get"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Product updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/get"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
       },
       "delete": {
+        "summary": "Deletes a product",
+        "responses": {
+          "200": {
+            "description": "Product deleted"
+          }
+        }
       }
-    }
+    },
   },
   "components": {
     "schemas": {
+      "get": {
+        "type": "object"
+      },
       "getAll": {
-        "type": "object",
-        "example": [
-          "{}",
-          "{}"
-        ]
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
       }
     }
   }

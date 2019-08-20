@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:8080/"
+      "url": "http://localhost:3000/"
     }
   ],
   "paths": {
@@ -28,9 +28,58 @@
         }
       },
       "post": {
+        "description": "Create a category",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "*/*": {
+
+              }
+            }
+          }
+        }
       }
     },
     "/categories/{id}": {
+      "get": {
+      },
+      "put": {
+      },
+      "delete": {
+      }
+    },
+    "/products": {
+      "get": {
+        "description": "Get all products",
+        "responses": {
+          "200": {
+            "description": "Returned a list of products",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/getAll"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Create a product",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "*/*": {
+
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/{id}": {
       "get": {
       },
       "put": {

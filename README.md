@@ -5,4 +5,4 @@
 ### Author: Austin Hedeen
 
 ### Links and Resources
-* [submission PR](http://xyz.com)
+* [submission PR](https://github.com/austinhedeen-401-advanced-javascript/lab-06/pull/1)

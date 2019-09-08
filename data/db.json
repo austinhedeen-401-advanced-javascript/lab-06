@@ -1,0 +1,31 @@
+{
+  "categories": [
+    {
+      "_id": 1,
+      "name": "Books",
+      "display_name": "Books",
+      "description": "these are books"
+    },
+    {
+      "_id": 2
+    },
+    {
+      "name": "Games",
+      "display_name": "Games",
+      "description": "these are games",
+      "_id": 3
+    }
+  ],
+  "products": [
+    {
+      "_id": 1,
+      "category": "Games",
+      "name": "Hollow Knight"
+    },
+    {
+      "_id": 2,
+      "category": "Games",
+      "name": "Slay the Spire"
+    }
+  ]
+}
